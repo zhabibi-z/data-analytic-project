@@ -10,6 +10,9 @@ conn = psycopg2.connect(
 )
 cur = conn.cursor()
 
+# Clear the students table to avoid duplicate key errors
+cur.execute("DELETE FROM students;")
+
 # Placeholder mappings for demonstration (replace with real lookups when dimension tables are ready)
 gender_map = {"M": 1, "F": 2}
 activity_map = {"Low": 1, "Moderate": 2, "High": 3}
